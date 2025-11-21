@@ -34,6 +34,24 @@ Curated, language-first movie recommendations powered by TMDB with a secure back
 - `public/styles.css`: Styling and responsive layout.
 - `public/app.js`: Frontend logic, TMDB calls via proxy, modal interactions.
 
+## Repo layout and Git guidance
+
+- Keep the runtime code in the repository: `server/` (backend) and `public/` (frontend assets).
+- Do NOT commit secrets or `node_modules`. A `.gitignore` is included that excludes `.env` and `node_modules`.
+- Use the provided `.env.example` as a template for local environment variables.
+
+To run locally:
+
+```powershell
+npm install
+# copy .env.example to .env and set TMDB_API_KEY
+node server/index.js
+# or use npm start
+npm start
+```
+
+To prepare for deployment (Heroku/Render): the repository includes a `Procfile` and `start` script in `package.json`.
+
 ## Notes
 
 - The TMDB key never touches the frontend; all calls go through `/api/recommend`.
